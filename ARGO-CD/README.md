@@ -105,4 +105,40 @@
 
 ### Argo CD as a extension
 
-- 
+- Argo CD uses Existing K8s Functionalities
+- e.g etcd to store data
+- e.g using K8s Controllers for monitoring and comparing actual vs desired state.
+- benefit
+  - Visibility in the cluster
+    - real time update of application state.
+
+### Configure Argo CD
+
+- Deploy ArgoCD into K8s Cluster
+  - Extends the K8s API with Custom Resource Definition
+- Configure ArgoCD with K8s Yaml File
+  - main resources is application
+    - which git repo?
+    - which k8s cluster
+  - logically group application
+
+### Multiple Cluster with ArgoCD
+
+- Configure and Manage just one ArgoCD
+- Same ArgoCD Instance is able to Sunc a fleet of K8s Cluster.
+
+- What about different environments?
+  - Two Options [Not the best option]
+    - Git Multiple Branch of Each Environment.
+    - Using Overlays with Kustomize
+
+### Replacement for other CI/CD tools?
+
+- Argo will not replace the jenkins or etc kind of tool
+- because we do need CI Pipeline.
+- It is only replacement for CD (Continous Delivery) but specifically for K8s.
+- there are other alternatives as well of ArgoCD
+  - Flux
+  - Jenkins X
+
+### Demo Overview

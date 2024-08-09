@@ -24,3 +24,29 @@ b. namespace level privileges: https://github.com/argoproj/argo-cd/raw/stable/ma
 https://github.com/argoproj/argo-cd/raw/stable/manifests/core-install.yaml
 
 4. Helm chart: https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd
+
+ArgoCD CLI - Installation
+• ArgoCD CLI can be installed into all platforms
+• Linux :
+1. brew install argocd
+or
+2. yay -Sy argocd-bin
+Or using curl
+3. curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linuxamd64
+• Mac : 
+1. brew install argocd
+or using curl
+2. VERSION=$(curl --silent "https://api.github.com/repos/argoproj/argo-cd/releases/latest" | grep '"tag_name"' | 
+sed -E 's/.*"([^"]+)".*/\1/’)
+curl -sSL -o /usr/local/bin/argocd https://github.com/argoproj/argo-cd/releases/download/$VERSION/argocddarwin-amd64
+• Windows : 
+$version = (Invoke-RestMethod https://api.github.com/repos/argoproj/argo-cd/releases/latest).tag_name
+$url = "https://github.com/argoproj/argo-cd/releases/download/" + $version + "/argocd-windows-amd64.exe" 
+$output = "argocd.exe" Invoke-WebRequest -Uri $url -OutFile $output
+
+
+Notes: CLI Installation instructions
+Follow official docs for your preferred platform (linux or mac or windows)
+
+
+https://argo-cd.readthedocs.io/en/stable/cli_installation/
